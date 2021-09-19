@@ -9,5 +9,5 @@ vscode:
 tasks:
   - name: DB Server
     init: docker pull postgres
-    command: docker run --name my-db -e POSTGRES_PASSWORD=springboot123 -d postgres
+    command: docker run --name my-db -e POSTGRES_PASSWORD=springboot123 -p 5432:5432 -d postgres
     openMode: split-right
