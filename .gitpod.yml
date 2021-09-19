@@ -1,0 +1,7 @@
+ports:
+- port: 8080
+vscode:
+  extensions:
+    - redhat.vscode-didact
+    - vsls-contrib.codetour
+    - Pivotal.vscode-boot-dev-pack
