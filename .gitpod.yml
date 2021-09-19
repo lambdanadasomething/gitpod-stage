@@ -5,3 +5,9 @@ vscode:
     - redhat.vscode-didact
     - vsls-contrib.codetour
     - Pivotal.vscode-boot-dev-pack
+    - vscjava.vscode-java-pack
+tasks:
+  - name: DB Server
+    init: docker pull postgres
+    command: docker run --name my-db -e POSTGRES_PASSWORD=springboot123 -d postgres
+    openMode: split-right
