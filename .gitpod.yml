@@ -6,6 +6,8 @@ vscode:
     - vsls-contrib.codetour
     - Pivotal.vscode-boot-dev-pack
     - vscjava.vscode-java-pack
+    - anweber.vscode-httpyac
+    - anweber.httpbook
 tasks:
   - name: DB Server
     init: docker pull postgres
