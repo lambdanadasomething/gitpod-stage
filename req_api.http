@@ -1,0 +1,88 @@
+GET http://localhost:8080/users
+
+HTTP/1.1 200 - OK
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/hal+json
+transfer-encoding: chunked
+date: Wed, 22 Sep 2021 18:24:44 GMT
+connection: close
+
+{
+  "_embedded" : {
+    "users" : [ {
+      "name" : "Jerry",
+      "email" : "foo.bar@null.com",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/users/1"
+        },
+        "websiteUser" : {
+          "href" : "http://localhost:8080/users/1"
+        }
+      }
+    }, {
+      "name" : "Mary",
+      "email" : "wonderland@disney.com",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/users/2"
+        },
+        "websiteUser" : {
+          "href" : "http://localhost:8080/users/2"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/users"
+    },
+    "profile" : {
+      "href" : "http://localhost:8080/profile/users"
+    },
+    "search" : {
+      "href" : "http://localhost:8080/users/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 2,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
+
+###
+
+# @name newUser
+POST http://localhost:8080/users
+Content-Type: application/json
+{
+    "name": "John",
+    "email": "testing@hello.com"
+}
+
+
+HTTP/1.1 201 - Created
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+location: http://localhost:8080/users/3
+content-type: application/hal+json
+transfer-encoding: chunked
+date: Wed, 22 Sep 2021 18:25:05 GMT
+connection: close
+
+{
+  "name" : "John",
+  "email" : "testing@hello.com",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/users/3"
+    },
+    "websiteUser" : {
+      "href" : "http://localhost:8080/users/3"
+    }
+  }
+}
+
+###
+
