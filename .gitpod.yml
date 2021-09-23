@@ -19,5 +19,5 @@ tasks:
     command: docker run -p 8090:80 -e 'PGADMIN_DEFAULT_EMAIL=john.doe@domain.com' -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' -d dpage/pgadmin4
   - name: psql client
     init: gp sync-await pgdb
-    command: psql -h localhost -p 5432 -u postgres -W -d postgres
+    command: psql -h localhost -p 5432 -U postgres -W -d postgres
     openMode: tab-after
