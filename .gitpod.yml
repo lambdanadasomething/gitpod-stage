@@ -13,5 +13,11 @@ vscode:
 tasks:
   - name: DB Server
     init: docker pull postgres
-    command: docker run --name my-db -e POSTGRES_PASSWORD=springboot123 -p 5432:5432 -d postgres
-    openMode: split-right
+    command: docker run --name my-db -e POSTGRES_PASSWORD=springboot123 -p 5432:5432 -d postgres && gp sync-done pgdb
+  - name: pgAdmin
+    init: docker pull dpage/pgadmin4
+    command: docker run -p 8090:80 -e 'PGADMIN_DEFAULT_EMAIL=john.doe@domain.com' -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' -d dpage/pgadmin4
+  - name: psql client
+    init: gp sync-await pgdb
+    command: psql -h localhost -p 5432 -u postgres -W -d postgres
+    openMode: tab-after
